@@ -25,8 +25,8 @@ const config: FeatureToggles<FeatureTogglesEnum> = {
     BrowserModule,
     MyModuleModule,
     FeatureTogglesModule.forRoot<FeatureTogglesEnum>({
-      config,
-      customService: CustomFeatureTogglesService
+      config
+      // customService: CustomFeatureTogglesService
     })
   ],
   providers: [],
