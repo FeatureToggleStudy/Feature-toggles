@@ -18,9 +18,9 @@ interface ForRootPayload<T extends string> {
 @NgModule({
   imports: [CommonModule]
 })
-export class FeatureToggleModule {
+export class FeatureTogglesModule {
   constructor(public i: Injector) {
-    FeatureToggleModule.injector = i;
+    FeatureTogglesModule.injector = i;
   }
   static injector: Injector;
 
@@ -28,7 +28,7 @@ export class FeatureToggleModule {
     const { config, customService } = payload;
 
     return {
-      ngModule: FeatureToggleModule,
+      ngModule: FeatureTogglesModule,
       providers: [
         {
           provide: FEATURE_TOGGLE_SERVICE,

@@ -1,4 +1,4 @@
-import { FeatureToggleModule, FEATURE_TOGGLE_SERVICE } from '../feature-toggle.module';
+import { FeatureTogglesModule, FEATURE_TOGGLE_SERVICE } from '../feature-toggle.module';
 import { Subscription } from 'rxjs';
 
 export const replacePropertyWith = (toggle: string, propertyName: any): PropertyDecorator => {
@@ -9,7 +9,7 @@ export const replacePropertyWith = (toggle: string, propertyName: any): Property
     const originalNgOnDestroy = target.constructor.prototype.ngOnDestroy;
 
     target.constructor.prototype.ngOnInit = function(...args) {
-      const service = FeatureToggleModule.injector.get(FEATURE_TOGGLE_SERVICE);
+      const service = FeatureTogglesModule.injector.get(FEATURE_TOGGLE_SERVICE);
 
       sub =
         service.config$ &&

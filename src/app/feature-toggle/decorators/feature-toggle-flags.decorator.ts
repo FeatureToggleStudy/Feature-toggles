@@ -1,4 +1,4 @@
-import { FeatureToggleModule, FEATURE_TOGGLE_SERVICE } from '../feature-toggle.module';
+import { FeatureTogglesModule, FEATURE_TOGGLE_SERVICE } from '../feature-toggle.module';
 import { Subscription } from 'rxjs';
 
 export function FeatureToggleFlags(): ClassDecorator {
@@ -19,7 +19,7 @@ export function FeatureToggleFlags(): ClassDecorator {
 
       target.prototype[methodName] = function(...args) {
         if (methodName === 'ngOnInit') {
-          const service = FeatureToggleModule.injector.get(FEATURE_TOGGLE_SERVICE);
+          const service = FeatureTogglesModule.injector.get(FEATURE_TOGGLE_SERVICE);
 
           this.__featureToggles = service.config;
           this.__featureToggles$ = service.config$;

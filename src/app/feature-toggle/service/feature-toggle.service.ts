@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { FeatureToggles } from '../models/feature-toggle.model';
-import { Observable, of, Subscription, BehaviorSubject } from 'rxjs';
+import { Observable, Subscription, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

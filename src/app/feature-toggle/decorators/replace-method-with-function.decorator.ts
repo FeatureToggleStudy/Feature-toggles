@@ -1,4 +1,4 @@
-import { FeatureToggleModule, FEATURE_TOGGLE_SERVICE } from '../feature-toggle.module';
+import { FeatureTogglesModule, FEATURE_TOGGLE_SERVICE } from '../feature-toggle.module';
 
 export const replaceMethodWithFunction = (toggle: string, func: any): MethodDecorator => {
   return (target: any, key: string, descriptor: any) => {
@@ -8,7 +8,7 @@ export const replaceMethodWithFunction = (toggle: string, func: any): MethodDeco
     const original = descriptor.value;
 
     target.ngOnInit = function(...args) {
-      service = FeatureToggleModule.injector.get(FEATURE_TOGGLE_SERVICE);
+      service = FeatureTogglesModule.injector.get(FEATURE_TOGGLE_SERVICE);
       const result = originalNgOnInit && originalNgOnInit.apply(this, args);
 
       return result;

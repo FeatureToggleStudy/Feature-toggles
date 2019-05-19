@@ -17,7 +17,7 @@ export class MyModuleComponent implements OnInit {
   readonly __featureToggles: FeatureToggles<FeatureTogglesEnum>;
   readonly __featureToggles$: Observable<FeatureToggles<FeatureTogglesEnum>>;
 
-  @replacePropertyWith(FeatureTogglesEnum.B, 'featureValue') originalValue = 'original';
+  @replacePropertyWith(FeatureTogglesEnum.RANDOM_BACKGROUND, 'featureValue') originalValue = 'original';
   featureValue = 'feature B';
 
   constructor() {}
@@ -32,13 +32,13 @@ export class MyModuleComponent implements OnInit {
     return `Feature: ${name} ${a}`;
   }
 
-  @replaceMethodWith(FeatureTogglesEnum.B, 'newFeature')
+  @replaceMethodWith(FeatureTogglesEnum.RANDOM_BACKGROUND, 'newFeature')
   originalFunction(a) {
     return `Original feature ${a}`;
   }
 
-  @replaceMethodWithFunction(FeatureTogglesEnum.B, function(...args: any[]) {
-    return this.newFeature(...args, FeatureTogglesEnum.B);
+  @replaceMethodWithFunction(FeatureTogglesEnum.RANDOM_BACKGROUND, function(...args: any[]) {
+    return this.newFeature(...args, FeatureTogglesEnum.RANDOM_BACKGROUND);
   })
   originalFunction2(a) {
     return `Original feature 2 ${a}`;

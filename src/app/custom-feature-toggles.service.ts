@@ -10,6 +10,7 @@ import { of } from 'rxjs';
 export class CustomFeatureTogglesService extends FeatureToggleService<FeatureTogglesEnum> {
   constructor(config?: FeatureToggles<FeatureTogglesEnum>) {
     super(undefined);
+
     setTimeout(() => {
       this.config$ = of(config);
     }, 2000);
